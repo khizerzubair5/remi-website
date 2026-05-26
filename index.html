@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remi — Your semester, handled.</title>
+  <meta name="description" content="Remi reads your Canvas calendar and texts you before every deadline. No app. No login. Just a text.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <span class="wordmark">Remi 🌿</span>
+      <a href="#waitlist" class="btn btn-nav">Join the waitlist</a>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Now enrolling for Fall 2026 · GMU</p>
+      <h1 class="hero-headline">Your semester,<br>handled.</h1>
+      <p class="hero-sub">
+        Remi reads your Canvas calendar and texts you before every deadline.<br>
+        No app to download. No settings to configure. Just a text.
+      </p>
+      <a href="#waitlist" class="btn btn-primary btn-lg">Join the waitlist →</a>
+    </div>
+  </section>
+
+  <!-- ===================== HOW IT WORKS ===================== -->
+  <section class="section how-section">
+    <div class="container">
+      <h2 class="section-heading fade-up">How it works</h2>
+      <div class="steps">
+
+        <div class="step fade-up">
+          <div class="step-num">1</div>
+          <h3>Connect your Canvas calendar</h3>
+          <p>Paste your Canvas feed URL. Takes 30 seconds. Remi reads your assignments automatically — no manual entry ever.</p>
+        </div>
+
+        <div class="step-arrow fade-up">→</div>
+
+        <div class="step fade-up">
+          <div class="step-num">2</div>
+          <h3>Remi reads your deadlines</h3>
+          <p>Every assignment, every due date. Synced twice daily so you never miss something a professor added last minute.</p>
+        </div>
+
+        <div class="step-arrow fade-up">→</div>
+
+        <div class="step fade-up">
+          <div class="step-num">3</div>
+          <h3>Get a text when it matters</h3>
+          <p>Sunday digest. 48-hour warning. 24-hour reminder. And a heads-up whenever a professor posts something new.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PREVIEW ===================== -->
+  <section class="section preview-section">
+    <div class="container preview-grid">
+
+      <div class="preview-copy fade-up">
+        <h2>What it looks like</h2>
+        <p>Real texts, right in your messages. No push notifications to swipe away. No app to open. Remi shows up exactly when you need it.</p>
+        <ul class="feature-list">
+          <li>
+            <span class="feature-icon">📅</span>
+            <span><strong>Weekly digest</strong> every Sunday — everything due that week, grouped by day</span>
+          </li>
+          <li>
+            <span class="feature-icon">⏰</span>
+            <span><strong>48-hour reminder</strong> before each deadline</span>
+          </li>
+          <li>
+            <span class="feature-icon">🔔</span>
+            <span><strong>24-hour reminder</strong> the day before</span>
+          </li>
+          <li>
+            <span class="feature-icon">📌</span>
+            <span><strong>New assignment alert</strong> when a professor posts something mid-week</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="phone-wrap fade-up">
+        <div class="phone-stage">
+
+          <!-- Phone frame -->
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+
+              <div class="messages-header">
+                <span class="messages-back">‹ Messages</span>
+                <span class="messages-contact">Remi 🌿</span>
+                <span class="messages-icon">⋯</span>
+              </div>
+
+              <div class="messages-body">
+
+                <!-- Slide 1: Weekly Digest -->
+                <div class="msg-slide active" data-slide="0">
+                  <div class="msg-datestamp">Sunday 6:00 PM</div>
+                  <div class="msg-bubble">
+                    <p>Hey Alex 👋</p><br>
+                    <p>Here's your week:</p><br>
+                    <p><strong>--Mon Jun 9--</strong></p>
+                    <p>CS 310</p>
+                    <p>- Data Structures Project — 11:59 PM</p><br>
+                    <p><strong>--Wed Jun 11--</strong></p>
+                    <p>MATH 114</p>
+                    <p>- Calculus HW 4 — 11:59 PM</p><br>
+                    <p>One week at a time — you've got this.</p><br>
+                    <p>— Remi 🌿</p>
+                  </div>
+                </div>
+
+                <!-- Slide 2: 48h Reminder -->
+                <div class="msg-slide" data-slide="1">
+                  <div class="msg-datestamp">Monday 8:00 AM</div>
+                  <div class="msg-bubble">
+                    <p>Hey Alex —</p><br>
+                    <p>Your Data Structures Project is due in 48 hours on Wed Jun 11 at 11:59 PM.</p><br>
+                    <p>Plenty of time to make it count.</p><br>
+                    <p>— Remi 🌿</p>
+                  </div>
+                </div>
+
+                <!-- Slide 3: 24h Reminder -->
+                <div class="msg-slide" data-slide="2">
+                  <div class="msg-datestamp">Tuesday 8:00 AM</div>
+                  <div class="msg-bubble">
+                    <p>Hey Alex —</p><br>
+                    <p>Your Data Structures Project is due tomorrow at 11:59 PM. One day left.</p><br>
+                    <p>You're closer to done than you think.</p><br>
+                    <p>— Remi 🌿</p>
+                  </div>
+                </div>
+
+                <!-- Slide 4: New Assignment Alert -->
+                <div class="msg-slide" data-slide="3">
+                  <div class="msg-datestamp">Wednesday 2:15 PM</div>
+                  <div class="msg-bubble">
+                    <p>Hey Alex 👋</p><br>
+                    <p>New assignment just posted to Canvas:</p><br>
+                    <p>CS 310: Surprise Quiz — due Mon Jun 16 at 11:59 PM</p><br>
+                    <p>Wanted to make sure you saw it.</p><br>
+                    <p>— Remi 🌿</p>
+                  </div>
+                </div>
+
+              </div><!-- messages-body -->
+
+              <!-- Progress bar -->
+              <div class="phone-progress">
+                <div class="phone-progress-bar" id="phone-progress-bar"></div>
+              </div>
+
+            </div><!-- phone-screen -->
+          </div><!-- phone-frame -->
+
+          <!-- Label panel with arrows -->
+          <div class="msg-labels">
+            <button class="msg-label active" data-label="0">
+              <span class="label-icon">📅</span>
+              <span class="label-text">Weekly Digest</span>
+            </button>
+            <button class="msg-label" data-label="1">
+              <span class="label-icon">⏰</span>
+              <span class="label-text">48h Reminder</span>
+            </button>
+            <button class="msg-label" data-label="2">
+              <span class="label-icon">🔔</span>
+              <span class="label-text">24h Reminder</span>
+            </button>
+            <button class="msg-label" data-label="3">
+              <span class="label-icon">📌</span>
+              <span class="label-text">New Assignment</span>
+            </button>
+          </div>
+
+        </div><!-- phone-stage -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== FOUNDER ===================== -->
+  <section class="section founder-section">
+    <div class="container">
+      <div class="founder-card fade-up">
+
+        <!-- Drop your headshot at img/headshot.jpg -->
+        <img src="img/headshot.jpg" alt="Khizer Zubair" class="founder-photo">
+
+        <div class="founder-body">
+          <p class="founder-label">Built by a student, for students</p>
+          <h3 class="founder-name">Khizer Zubair</h3>
+          <p class="founder-bio">
+            Senior at George Mason University. I built Remi after one too many close calls with
+            deadlines — and after realizing every student around me was doing the same thing.
+            No app to download. No settings to configure. Just a number that texts you when you need it.
+          </p>
+          <div class="founder-links">
+            <a href="https://www.instagram.com/khizerzubair5/" target="_blank" rel="noopener" class="social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+              Instagram
+            </a>
+            <a href="https://www.linkedin.com/in/khizerzubair5/" target="_blank" rel="noopener" class="social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <!-- Uncomment this section once you have real student quotes from interviews -->
+  <!--
+  <section class="section testimonials-section">
+    <div class="container">
+      <h2 class="section-heading fade-up">What students say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-up">
+          <p class="testimonial-quote">"I totally forgot about a lab report until Remi texted me. Saved me."</p>
+          <p class="testimonial-author">— Alex, GMU CS sophomore</p>
+        </div>
+        <div class="testimonial-card fade-up">
+          <p class="testimonial-quote">"Quote two goes here."</p>
+          <p class="testimonial-author">— Name, GMU [major] [year]</p>
+        </div>
+        <div class="testimonial-card fade-up">
+          <p class="testimonial-quote">"Quote three goes here."</p>
+          <p class="testimonial-author">— Name, GMU [major] [year]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  -->
+
+  <!-- ===================== WAITLIST ===================== -->
+  <section class="section waitlist-section" id="waitlist">
+    <div class="container">
+      <div class="waitlist-card fade-up">
+
+        <div class="waitlist-badge">Fall 2026 · GMU</div>
+        <h2 class="waitlist-heading">Get early access</h2>
+        <p class="waitlist-sub">
+          Remi opens for Fall 2026 enrollment in August. Join the list and you'll be first to
+          know — and Remi will text you right now to confirm your spot.
+        </p>
+
+        <form id="waitlist-form" novalidate>
+          <div class="form-group">
+            <label for="wl-name">First name</label>
+            <input type="text" id="wl-name" placeholder="Alex" class="input" autocomplete="given-name" required>
+          </div>
+          <div class="form-group">
+            <label for="wl-email">Email</label>
+            <input type="email" id="wl-email" placeholder="alex@gmu.edu" class="input" autocomplete="email" required>
+          </div>
+          <div class="form-group">
+            <label for="wl-phone">Phone number</label>
+            <input type="tel" id="wl-phone" placeholder="+1 (703) 555-0100" class="input" autocomplete="tel" required>
+            <p class="input-hint">Remi will text you to confirm. Standard SMS rates apply.</p>
+          </div>
+          <div id="wl-error" class="error-msg" style="display:none"></div>
+          <button type="submit" class="btn btn-primary btn-full" id="wl-submit">
+            <span id="wl-text">Join the waitlist →</span>
+            <span class="spinner" id="wl-spinner" style="display:none"></span>
+          </button>
+        </form>
+
+        <div id="wl-success" class="wl-success" style="display:none">
+          <div class="wl-success-icon">🌿</div>
+          <h3>You're on the list.</h3>
+          <p>Remi just texted you to confirm. Enrollment opens in August — you'll hear from Remi then.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="wordmark footer-wordmark">Remi 🌿</span>
+      <p class="footer-text">Built at George Mason University · get-remi.com</p>
+      <p class="footer-text">Reply STOP to any Remi message to unsubscribe</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

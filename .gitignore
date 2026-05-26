@@ -1,0 +1,12 @@
+# Claude Code config
+.claude/
+
+# Local dev server logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (if packages are ever added)
+node_modules/
