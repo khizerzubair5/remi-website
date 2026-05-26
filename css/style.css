@@ -834,6 +834,20 @@ label {
   line-height: 1.5;
 }
 
+.footer-link {
+  color: #888;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-link:hover {
+  color: var(--teal-light);
+}
+
+.footer-sep {
+  color: #555;
+}
+
 /* ============================================================
    SCROLL ANIMATIONS
    ============================================================ */
