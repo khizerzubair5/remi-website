@@ -2,9 +2,8 @@
    REMI WEBSITE — app.js
    ============================================================ */
 
-const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-  ? 'http://localhost:3000'
-  : 'https://remi-backend-production-039a.up.railway.app';
+// Waitlist API is a Vercel serverless function — same origin in prod and local dev
+const API_BASE = '';
 
 // ── Nav: add .scrolled class on scroll ────────────────────────────────────────
 const nav = document.getElementById('nav');
