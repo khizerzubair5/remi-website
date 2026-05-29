@@ -58,6 +58,55 @@ function setLoading(on) {
   spinner.style.display   = on ? 'inline-block' : 'none';
 }
 
+// ── Live waitlist count + names ───────────────────────────────────────────────
+async function fetchWaitlistPublic() {
+  try {
+    const res  = await fetch(`${API_BASE}/api/waitlist-public`);
+    const data = await res.json();
+    return data; // { count, names }
+  } catch {
+    return null;
+  }
+}
+
+// On page load: if already signed up, skip the form and show success state
+if (localStorage.getItem('remi_signed_up')) {
+  form.style.display = 'none';
+  success.style.display = 'block';
+  showNamesAfterSignup();
+}
+
+// On page load: show live count below the sub-heading as social proof
+(async function loadLiveCount() {
+  const data = await fetchWaitlistPublic();
+  if (!data || data.count === 0) return;
+
+  const el = document.getElementById('wl-live-count');
+  if (!el) return;
+  el.textContent = `${data.count} student${data.count === 1 ? '' : 's'} already on the list.`;
+  el.style.display = 'block';
+}());
+
+// After signup: show the names list inside the success state
+async function showNamesAfterSignup() {
+  const data = await fetchWaitlistPublic();
+  if (!data || data.count <= 1) return; // only show if there are others
+
+  const wrap      = document.getElementById('wl-names-wrap');
+  const countEl   = document.getElementById('wl-names-count');
+  const listEl    = document.getElementById('wl-names-list');
+  if (!wrap || !countEl || !listEl) return;
+
+  // Count excludes the user who just signed up (they're already in the DB)
+  countEl.textContent = data.count - 1;
+
+  listEl.innerHTML = data.names
+    .map(name => `<span class="wl-name-chip">${name}</span>`)
+    .join('');
+
+  wrap.style.display = 'block';
+}
+
 // ── Phone message carousel ────────────────────────────────────────────────────
 (function () {
   const DURATION = 4000; // ms per slide
@@ -110,7 +159,7 @@ function setLoading(on) {
   startTimer();
 }());
 
-// ── Waitlist form ─────────────────────────────────────────────────────────────
+// ── Waitlist form submission ──────────────────────────────────────────────────
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   clearError();
@@ -138,12 +187,22 @@ form.addEventListener('submit', async (e) => {
     const data = await res.json();
 
     if (!res.ok) {
+      // Already on the waitlist — treat as success on a different browser
+      if (res.status === 409) {
+        localStorage.setItem('remi_signed_up', 'true');
+        form.style.display = 'none';
+        success.style.display = 'block';
+        showNamesAfterSignup();
+        return;
+      }
       throw new Error(data.error || 'Something went wrong. Please try again.');
     }
 
-    // Success — hide form, show confirmation
+    // Success — hide form, show confirmation + names list
+    localStorage.setItem('remi_signed_up', 'true');
     form.style.display = 'none';
     success.style.display = 'block';
+    showNamesAfterSignup();
 
   } catch (err) {
     showError(err.message);

@@ -132,6 +132,9 @@ Push to `main` → Vercel auto-deploys. No build step. Vercel installs `package.
 - [x] Duplicate phone check at API level
 - [x] Confirmation SMS in Remi's voice
 - [x] API_BASE updated to same-origin (no Railway dependency)
+- [x] Live waitlist count shown on page load below the form sub-heading (social proof)
+- [x] Names list shown in success state after signup — "You're joining X others"
+- [x] `api/waitlist-public.js` — GET endpoint, returns first names + count only (no PII)
 
 ## What Still Needs To Be Done
 
@@ -140,6 +143,39 @@ Push to `main` → Vercel auto-deploys. No build step. Vercel installs `package.
 - [ ] **Testimonials section** — uncomment in `index.html` once real student quotes from WTP interviews are collected
 - [ ] **Add UNIQUE constraint on phone** in Neon table (currently enforced at app level only)
 - [ ] Consider adding email UNIQUE constraint as well
+
+---
+
+## Fall 2026 Onboarding Plan
+
+### Decided: Two-step paid onboarding
+
+Payment is the commitment gate. Once a user pays, completion of both steps is near-certain.
+
+```
+August SMS/email blast to waitlist
+  → Stripe payment (mobile-friendly hosted checkout)
+  → Moment 1: name, school, timezone — 30 sec on mobile (new form)
+  → Remi texts: "One more step on your laptop → [link]"
+  → Moment 2: iCal URL + syllabus uploads on desktop (existing remi-backend/public/ form)
+  → Welcome SMS fires automatically, reminders begin
+```
+
+### What needs to be built
+
+| Piece | Where | Status |
+|---|---|---|
+| Waitlist capture | remi-website | ✅ Done |
+| August SMS/email blast to waitlist | One-off script | Not built |
+| Stripe payment | Hosted Stripe checkout | Not built |
+| Moment 1 form — basic info, mobile-optimized | remi-website or remi-backend/public/ | Not built |
+| Moment 2 form — iCal + syllabi, desktop | remi-backend/public/ | ✅ Already exists |
+| Post-payment SMS nudge with desktop link | remi-backend | Not built |
+
+### Key decisions still open
+- Pricing for Fall semester (was $9 for summer pilot)
+- Stripe vs. continued Venmo (Stripe preferred for scale)
+- Whether Moment 1 form lives in remi-website or remi-backend/public/
 
 ---
 
