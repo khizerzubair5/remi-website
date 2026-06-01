@@ -109,45 +109,35 @@ async function showNamesAfterSignup() {
 
 // ── Phone message carousel ────────────────────────────────────────────────────
 (function () {
-  const DURATION = 4000; // ms between messages
+  const DURATION = 4000; // ms per slide
 
-  const items       = document.querySelectorAll('.msg-item');
+  const slides      = document.querySelectorAll('.msg-slide');
   const labels      = document.querySelectorAll('.msg-label');
   const progressBar = document.getElementById('phone-progress-bar');
-  const body        = document.getElementById('messages-body');
 
-  if (!items.length || !progressBar) return;
+  if (!slides.length || !progressBar) return; // guard: not on this page
 
-  let current = -1;
+  let current = 0;
   let timer   = null;
 
-  function startProgress() {
+  function showSlide(index) {
+    slides.forEach(s => s.classList.remove('active'));
+    labels.forEach(l => l.classList.remove('active'));
+
+    slides[index].classList.add('active');
+    labels[index].classList.add('active');
+    current = index;
+
+    // Reset progress bar then animate
     progressBar.style.transition = 'none';
     progressBar.style.width = '0%';
-    void progressBar.offsetWidth;
+    void progressBar.offsetWidth; // force reflow
     progressBar.style.transition = `width ${DURATION}ms linear`;
     progressBar.style.width = '100%';
   }
 
-  function revealUpTo(index) {
-    items.forEach((item, i) => item.classList.toggle('visible', i <= index));
-    labels.forEach((l, i) => l.classList.toggle('active', i === index));
-    current = index;
-    // scroll to latest message after transition begins
-    setTimeout(() => { body.scrollTop = body.scrollHeight; }, 50);
-    startProgress();
-  }
-
   function advance() {
-    if (current >= items.length - 1) {
-      // reset: hide all, restart after a short pause
-      items.forEach(item => item.classList.remove('visible'));
-      labels.forEach(l => l.classList.remove('active'));
-      current = -1;
-      setTimeout(() => revealUpTo(0), 600);
-    } else {
-      revealUpTo(current + 1);
-    }
+    showSlide((current + 1) % slides.length);
   }
 
   function startTimer() {
@@ -155,17 +145,17 @@ async function showNamesAfterSignup() {
     timer = setInterval(advance, DURATION);
   }
 
-  // Label click — reveal up to that message, restart timer
+  // Label click — jump to that slide, restart timer
   labels.forEach(label => {
     label.addEventListener('click', () => {
       const idx = parseInt(label.dataset.label, 10);
-      revealUpTo(idx);
+      showSlide(idx);
       startTimer();
     });
   });
 
   // Kick off
-  revealUpTo(0);
+  showSlide(0);
   startTimer();
 }());
 
