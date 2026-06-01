@@ -52,7 +52,7 @@ module.exports = async function handler(req, res) {
       body: [
         `Hey ${name.trim()},  You're Remi's waitlist for Fall 2026.`,
         '',
-        `Enrollment opens in August — I'll text you when it's time to get set up.`,
+        `Enrollment opens in August - I'll text you when it's time to get set up.`,
         '',
         'Have friends at GMU? Share this link with them: get-remi.com',
         '',
