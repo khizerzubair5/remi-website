@@ -50,9 +50,11 @@ module.exports = async function handler(req, res) {
       from: process.env.TWILIO_PHONE_NUMBER,
       to:   phone,
       body: [
-        `Hey ${name.trim()},  You're on the Remi waitlist for Fall 2026.`,
+        `Hey ${name.trim()},  You're Remi's waitlist for Fall 2026.`,
         '',
         `Enrollment opens in August — I'll text you when it's time to get set up.`,
+        '',
+        'Have friends at GMU? Share this link with them: get-remi.com',
         '',
         '- Remi',
         'Reply STOP to unsubscribe',
