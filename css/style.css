@@ -498,7 +498,7 @@ p { line-height: 1.6; }
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 560px;
+  height: 560px;
 }
 
 .messages-header {
@@ -534,29 +534,28 @@ p { line-height: 1.6; }
 
 .messages-body {
   flex: 1;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Carousel slides — absolute stacked, fade in/out */
-.msg-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 16px 12px 20px;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
+  padding: 16px 12px 20px;
   gap: 6px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.45s ease;
-  overflow: hidden;
+  scroll-behavior: smooth;
 }
 
-.msg-slide.active {
+/* Individual message items — fade+slide in when revealed */
+.msg-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.msg-item.visible {
   opacity: 1;
+  transform: translateY(0);
   pointer-events: auto;
 }
 
