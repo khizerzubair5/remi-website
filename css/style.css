@@ -148,6 +148,29 @@ p { line-height: 1.6; }
   user-select: none;
 }
 
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-get-started {
+  background: transparent;
+  color: var(--teal);
+  border: 1.5px solid var(--teal);
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background 0.18s, color 0.18s, transform 0.18s;
+}
+
+.btn-get-started:hover {
+  background: var(--teal);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
 .btn-nav {
   background: var(--teal);
   color: var(--white);
