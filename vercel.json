@@ -2,6 +2,7 @@
   "cleanUrls": true,
   "rewrites": [
     { "source": "/zoho-domain-verification.html", "destination": "/zoho-domain-verification" },
-    { "source": "/onboard", "destination": "https://onboard.get-remi.com" }
+    { "source": "/onboard", "destination": "https://onboard.get-remi.com" },
+    { "source": "/b/:path*", "destination": "https://onboard.get-remi.com/b/:path*" }
   ]
 }
